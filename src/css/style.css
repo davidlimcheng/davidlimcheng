@@ -1,0 +1,9 @@
+.test {
+  display: grid;
+  grid-template-colunns: 4;
+  background-color: red;
+}
+
+.child-test {
+  grid-column-start: 2;
+}
