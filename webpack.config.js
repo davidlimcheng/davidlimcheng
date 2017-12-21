@@ -1,5 +1,7 @@
+const autoprefixer = require('autoprefixer');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin')
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -7,10 +9,42 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.css$/, loaders: ["style-loader", "css-loader"] }
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: [
+          { loader: 'babel-loader' }
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(s*)css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+          { loader: 'postcss-loader',
+            options: {
+              plugins: function() {
+                return [autoprefixer]
+              }
+            }}
+        ]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          { loader: 'file-loader' }
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          { loader: 'url-loader' }
+        ],
+        exclude: /node_modules/
+      }
     ]
   },
   plugins: [
