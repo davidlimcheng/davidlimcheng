@@ -1,7 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Match, Miss } from 'react-router';
-import App from './components/App';
-import './css/style.css';
+import { BrowserRouter } from 'react-router-dom';
 
-render(<App />, document.querySelector('#main'));
+import './css/style.scss';
+import App from './components/App';
+
+// render(<Root/>, document.querySelector('#main'));
+
+render ((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.querySelector('#main'));
