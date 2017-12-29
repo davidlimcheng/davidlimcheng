@@ -5,7 +5,6 @@
 .intro-container {
   align-items: center;
   display: grid;
-  font-family: 'helvetica';
   grid-template-columns: 10% 40% 40% 10%;
   grid-template-rows: 25% 25% 25% 25%;
   height: 100%;
@@ -62,6 +61,7 @@
   li {
     display: inline;
     font-family: 'thenextfont';
+    font-weight: lighter;
     margin: 0 25px;
   }
   li:first-child {
