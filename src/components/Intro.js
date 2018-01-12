@@ -15,7 +15,7 @@ class Intro extends React.Component {
                 <p>Front-End // Back-End // Artificial Intelligence</p>
               </div>
             </div>
-            <NavBar />
+            <NavBar navLinks={this.props.navLinks}/>
           </div>
         </div>
       </div>
