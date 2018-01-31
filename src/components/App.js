@@ -1,7 +1,11 @@
 import React from 'react';
 import Intro from './Intro';
 import Experience from './Experience';
+import Skills from './Skills';
 import experiences from '../experiences.js';
+import skills from '../technical_skills.js';
+import education from '../education.js';
+import certifications from '../certifications.js';
 
 const navLinks = {
   link1: {
@@ -9,14 +13,10 @@ const navLinks = {
     url: '#'
   },
   link2: {
-    name: 'SKILLS',
+    name: 'SKILLS & EDUCATION',
     url: '#'
   },
   link3: {
-    name: 'EDUCATION',
-    url: '#'
-  },
-  link4: {
     name: 'INTERESTS',
     url: '#'
   }
@@ -31,9 +31,11 @@ class App extends React.Component {
     this.removeSelectedJob = this.removeSelectedJob.bind(this);
     this.state = {
       navLinks: navLinks,
+      certifications: certifications,
       experiences: experiences,
+      skills: skills,
       hoveredJob: false,
-      selectedJob: false
+      selectedJob: experiences.job1
     }
   }
   updateHoveredJob(job) {
@@ -59,6 +61,7 @@ class App extends React.Component {
             removeSelectedJob={this.removeSelectedJob}
             hoveredJob={this.state.hoveredJob}
             selectedJob={this.state.selectedJob}/>
+        <Skills skills={this.state.skills} />
       </div>
     )
   }

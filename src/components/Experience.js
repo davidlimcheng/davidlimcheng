@@ -26,9 +26,9 @@ class Experience extends React.Component {
   renderMiddleBorder() {
     let middleBorderColor = 'experience-middle-border-default';
     if (this.props.selectedJob) {
-      middleBorderColor = 'experience-middle-border-' + this.props.selectedJob.jobKey;
+      middleBorderColor = 'experience-middle-border-' + this.props.selectedJob.id;
     } else if (this.props.hoveredJob) {
-      middleBorderColor = 'experience-middle-border-' + this.props.hoveredJob.jobKey;
+      middleBorderColor = 'experience-middle-border-' + this.props.hoveredJob.id;
     }
     return (
       <div className={"experience-middle-border " + middleBorderColor}></div>
@@ -41,15 +41,15 @@ class Experience extends React.Component {
     const job = this.props.experiences[key];
     let containerClass = 'experience-item-container';
     // If there is no selected job or there is a selected job and we are not rendering it, add the hover effects
-    if (!this.props.selectedJob || (this.props.selectedJob && this.props.selectedJob.jobKey !== key)) {
+    if (!this.props.selectedJob || (this.props.selectedJob && this.props.selectedJob.id !== key)) {
       containerClass += ' ' + key;
     }
     // If rendering the selected job, add a class for the permanent background color and font color changees
-    if (this.props.selectedJob && this.props.selectedJob.jobKey === key) {
+    if (this.props.selectedJob && this.props.selectedJob.id === key) {
       containerClass += ' selected-job experience-item-container-selected-' + key;
     }
     return (
-      <li className="experience-item" key={key}
+      <li key={job.id} className="experience-item"
           onMouseEnter={(e) => this.addHoveredJob(e, key)}
           onMouseLeave={(e) => this.removeHoveredJob(e)}
           onClick={(e) => this.addOrRemoveSelectedJob(e, key)}>
@@ -75,20 +75,20 @@ class Experience extends React.Component {
       return (
         <div className="experience-description">
           <div className="experience-description-timeline">
-            <h2 className="experience-description-timeline-header">Timeline:&nbsp;&nbsp;</h2><h3 className={'experience-'+job.jobKey}>{job.timeline}</h3>
+            <h2 className="experience-description-timeline-header">Timeline:&nbsp;&nbsp;</h2><h3 className={'experience-'+job.id}>{job.timeline}</h3>
           </div>
           <h2>Summary:</h2>
           <p>{job.summary}</p>
           <h2 className="experience-description-list-header">Duties:</h2>
           <ul>
             {job.duties.map(function(duty){
-              return (<li><p>{duty}</p></li>)
+              return (<li key={duty.id}><p>{duty.desc}</p></li>)
             })}
           </ul>
           <h2 className="experience-description-list-header">Main Skills:</h2>
           <ul>
             {job.skills.map(function(skill) {
-              return (<li><p>{skill}</p></li>)
+              return (<li key={skill.id}><p>{skill.skill}</p></li>)
             })}
           </ul>
         </div>

@@ -21,10 +21,10 @@
     color: rgb(0, 220, 102);
   }
   .experience-job2 {
-    color: rgb(238, 44, 44);
+    color: rgb(4, 108, 164);
   }
   .experience-job3 {
-    color: rgb(255,215,0);
+    color: rgb(255, 57, 0);
   }
   h2 {
     color: white;
@@ -85,6 +85,7 @@
 }
 
 .experience-list {
+  align-self: center;
   grid-column-start: 2;
   grid-row-start: 2;
   ul {
@@ -111,11 +112,11 @@
 }
 
 .experience-middle-border-job2 {
-  border-left: 1px solid rgb(238, 44, 44);
+  border-left: 1px solid rgb(4, 108, 164);
 }
 
 .experience-middle-border-job3 {
-  border-left: 1px solid rgb(255,215,0);
+  border-left: 1px solid rgb(255, 57, 0);
 }
 
 .experience-title {
@@ -143,14 +144,14 @@
 }
 
 .job2:hover {
-  background: rgba(238, 44, 44, 0.65);
+  background: rgba(4, 108, 164, 0.85);
   .experience-item-details, strong {
     color: black;
   }
 }
 
 .job3:hover {
-  background: rgba(255,215,0, 0.55);
+  background: rgba(255, 57, 0, 0.75);
   .experience-item-details, strong {
     color: black;
   }
@@ -160,10 +161,10 @@
   background-color: rgba(0, 220, 102, 0.7);
 }
 .experience-item-container-selected-job2 {
-  background-color: rgba(238, 44, 44, 0.65);
+  background-color: rgba(4, 108, 164, 0.85);
 }
 .experience-item-container-selected-job3 {
-  background-color: rgba(255,215,0, 0.55);
+  background-color: rgba(255, 57, 0, 0.75);
 }
 
 .selected-job {
