@@ -30,7 +30,7 @@
 
 .title-name {
   align-self: center;
-  border-left: 1px solid rgb(105, 105, 105);
+  border-left: 1px solid rgb(155, 155, 155);
   color: white;
   font-weight: normal;
   padding-left: 5%;
@@ -50,8 +50,8 @@
 
 .navigation {
   align-self: start;
-  border-bottom: 1px solid rgb(105, 105, 105);
-  border-top: 1px solid rgb(105, 105, 105);
+  border-bottom: 1px solid rgb(155, 155, 155);
+  border-top: 1px solid rgb(155, 155, 155);
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 3;
@@ -60,8 +60,7 @@
   padding: 14px 0;
   li {
     display: inline;
-    font-family: 'thenextfont';
-    font-weight: lighter;
+    font-family: 'muli';
     margin: 0 25px;
   }
   li:first-child {
@@ -76,6 +75,6 @@
     transition: color 0.2s ease;
   }
   a:hover {
-    color: rgb(155, 155, 155);
+    color: rgb(43, 43, 43);
   }
 }
