@@ -1,0 +1,234 @@
+.projects {
+  color: white;
+  display: grid;
+  font-family: 'muli-light';
+  grid-template-columns: 1fr;
+  justify-items: center;
+  .projects-arrow {
+    position: fixed;
+    left: 5%;
+    grid-column-start: 1;
+    a {
+      color: white;
+    }
+  }
+  .projects-list {
+    grid-column-start: 1;
+    justify-content: center;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      .projects-list-project-item {
+        display: grid;
+        justify-content: center;
+        margin: 12px 0 82px;
+      }
+    }
+  }
+  .projects-text {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 20px;
+    .projects-text-title {
+      h2 {
+        font-family: "stay-fresh";
+        font-size: 60px;
+        font-weight: lighter;
+        margin: 0;
+      }
+    }
+    .projects-text-body {
+      grid-column-start: 1;
+      grid-column-end: span 2;
+      font-size: 18px;
+      line-height: 1.6;
+      ul {
+        list-style-type: none;
+        li {
+          border-radius: 12px;
+          display: inline-block;
+          font-family: "muli";
+          font-weight: bolder;
+          padding: 0 8px;
+          margin-right: 12px;
+          margin-top: 8px;
+        }
+      }
+    }
+    .projects-text-body-border-bottom {
+      border-bottom: 1px solid var(--gray-borderline);;
+      margin-top: 16px;
+    }
+    .projects-text-link-list {
+      grid-column-start: 1;
+      grid-column-end: span 2;
+      ul {
+        display: block;
+        list-style-type: none;
+        li {
+          border-spacing: 12px;
+          display: table;
+          a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s ease;
+          }
+          p {
+            display: table-cell;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .projects-text-title {
+      border-bottom: 1px solid var(--gray-borderline);;
+      display: inline-block;
+    }
+  }
+
+  .projects-dog-breed-classifier {
+    background-image: url('./images/leo.jpg');
+    background-size: contain;
+    height: 667px;
+    width: 500px;
+    .projects-text-body {
+      li {
+        background-color: var(--yellow-complementary-blue-overlay);
+        color: var(--blue-overlay);
+      }
+    }
+    .projects-text-link-list {
+      ul li a:hover {
+        color: var(--yellow-complementary-blue-overlay);
+      }
+    }
+  }
+  .projects-calcentral {
+    background-image: url('./images/calcentral.jpg');
+    background-size: contain;
+    height: 400px;
+    width: 667px;
+    .projects-text-body {
+      li {
+        background-color: var(--yellow-complementary-red-overlay);
+        color: var(--red-overlay);
+      }
+    }
+    .projects-text-link-list {
+      ul li a:hover {
+        color: var(--yellow-complementary-red-overlay);
+      }
+    }
+  }
+
+  /* CSS from Hover.css (thanks Hover!) */
+    /* Sweep To Bottom */
+  .hvr-sweep-to-bottom {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    .projects-text {
+      visibility: hidden;
+    }
+  }
+  .hvr-sweep-to-bottom:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--blue-overlay);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-sweep-to-bottom:hover, .hvr-sweep-to-bottom:focus, .hvr-sweep-to-bottom:active {
+    .projects-text {
+      visibility: visible;
+    }
+  }
+  .hvr-sweep-to-bottom:hover:before, .hvr-sweep-to-bottom:focus:before, .hvr-sweep-to-bottom:active:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  /* Sweep To Right */
+  .hvr-sweep-to-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    .projects-text {
+      visibility: hidden;
+    }
+  }
+  .hvr-sweep-to-right:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--red-overlay);
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+    .projects-text {
+      transition: visibility 0.5s;
+      visibility: visible;
+    }
+  }
+  .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  /* Bounce In */
+  .hvr-bounce-in {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
+}

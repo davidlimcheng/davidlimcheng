@@ -12,7 +12,7 @@ class Intro extends React.Component {
               <div className="title-name">
                 <h1>David L</h1>
                 <h1>Cheng</h1>
-                <p>Front-End // Back-End // Artificial Intelligence</p>
+                <p>Front-End // Back-End // AI Developer</p>
               </div>
             </div>
             <NavBar navLinks={this.props.navLinks}/>
