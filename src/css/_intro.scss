@@ -30,7 +30,7 @@
 
 .title-name {
   align-self: center;
-  border-left: 1px solid var(--gray-borderline);
+  border-left: 1px solid var(--white-borderline);
   color: white;
   font-weight: normal;
   padding-left: 5%;
@@ -50,8 +50,8 @@
 
 .navigation {
   align-self: start;
-  border-bottom: 1px solid var(--gray-borderline);
-  border-top: 1px solid var(--gray-borderline);
+  border-bottom: 1px solid var(--white-borderline);
+  border-top: 1px solid var(--white-borderline);
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 3;
@@ -75,6 +75,6 @@
     transition: color 0.2s ease;
   }
   a:hover {
-    color: var(--green-nav-link-hover);
+    color: var(--yellow-nav-link-hover);
   }
 }
