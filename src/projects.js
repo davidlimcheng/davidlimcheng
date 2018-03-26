@@ -3,7 +3,7 @@ const projects = [
     id: 'project1',
     title: 'UC Berkeley CalCentral',
     image: '../css/images/calcentral.jpg',
-    desc: 'A one-stop hub for students, staff, and faculty at UC Berkeley. Users can enroll in classes, pay bills, view or submit grades, along with anything else they may need to do throughout their academic career.',
+    desc: 'A one-stop hub for students, staff, and faculty at UC Berkeley. Users can enroll in classes, pay bills, view or submit grades, along with anything else they may need to do throughout their academic careers.',
     keywords: [
       {
         id: 'keyword1',
