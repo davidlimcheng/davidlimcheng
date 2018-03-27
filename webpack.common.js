@@ -1,13 +1,15 @@
 const autoprefixer = require('autoprefixer');
+const cleanWebpackPlugin = require('clean-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: path.join(__dirname, './src/index.js')
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/'
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
@@ -48,14 +50,12 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    historyApiFallback: true
-  },
   plugins: [
     new htmlWebpackPlugin({
       hash: true,
       filename: 'index.html',
       template: __dirname + '/index.html'
-    })
+    }),
+    new cleanWebpackPlugin(['dist'])
   ]
 }

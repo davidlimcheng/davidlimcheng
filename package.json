@@ -2,10 +2,10 @@
   "name": "davidlimcheng",
   "version": "1.0.0",
   "description": "Personal website",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server",
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --progress -d --config webpack.config.js --watch"
   },
@@ -26,6 +26,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "browserslist": "^2.10.0",
+    "clean-webpack-plugin": "^0.1.19",
     "css-grid": "^1.0.7",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.6",
@@ -40,7 +41,8 @@
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-dev-server": "^2.9.7",
+    "webpack-merge": "^4.1.2"
   },
   "browserslist": [
     "> 1%",

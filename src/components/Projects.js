@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import projects from '../projects.js';
 
 class Projects extends React.Component {
@@ -67,9 +68,9 @@ class Projects extends React.Component {
     return (
       <div className="projects">
         <div className="projects-arrow">
-          <a href="/">
+          <Link to="/">
             <h1><i className="far fa-arrow-alt-circle-left fa-2x hvr-bounce-in"></i></h1>
-          </a>
+          </Link>
         </div>
         <div className="projects-list">
           <ul>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class NavBar extends React.Component {
   renderNavItem(key) {
     return (
       <li key={key}>
-        <a href={this.props.navLinks[key].url}>{this.props.navLinks[key].name}</a>
+        <Link to={this.props.navLinks[key].url}>{this.props.navLinks[key].name}</Link>
       </li>
     )
   }
