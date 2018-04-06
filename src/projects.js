@@ -61,6 +61,11 @@ const projects = [
     links: [
       {
         id: 'link1',
+        type: 'demo',
+        link: '/dog',
+        descr: 'Demo this project'
+      }, {
+        id: 'link2',
         type: 'github',
         link: 'https://github.com/davidlimcheng/dog-project',
         descr: 'View this project on GitHub'

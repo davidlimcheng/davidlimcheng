@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import projects from '../projects.js';
 
+const isRelativeLink = function(link) {
+  if (link.startsWith('/')) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 class Projects extends React.Component {
   constructor() {
     super();
@@ -50,18 +58,34 @@ class Projects extends React.Component {
   }
   renderProjectLink(link) {
     let faIcon = ''
+    let isRelative = isRelativeLink(link.link);
     switch (link.type) {
+      case 'demo':
+        faIcon = 'icon far fa-play-circle fa-2x';
+        break;
       case 'github':
-        faIcon = 'icon fab fa-github fa-2x'
+        faIcon = 'icon fab fa-github fa-2x';
+        break;
     }
-    return (
-      <li key={link.id}>
-        <a href={link.link} target="_blank">
-          <i className={faIcon}></i>
-          <p>{link.descr}</p>
-        </a>
-      </li>
-    )
+    if (isRelative) {
+      return (
+        <li key={link.id}>
+          <Link to={link.link} target="_blank">
+            <i className={faIcon}></i>
+            <p>{link.descr}</p>
+          </Link>
+        </li>
+      )
+    } else {
+        return (
+          <li key={link.id}>
+            <a href={link.link} target="_blank">
+              <i className={faIcon}></i>
+              <p>{link.descr}</p>
+            </a>
+          </li>
+        )
+    }
   }
 
   render() {

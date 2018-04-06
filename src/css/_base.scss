@@ -1,12 +1,4 @@
 @font-face {
-  font-family: "thenextfont";
-  src: url("./fonts/TheNextFont.eot");
-  src: url("./fonts/TheNextFont.eot?#iefix") format("embedded-opentype"), url("./fonts/TheNextFont.woff") format("woff"), url("./fonts/TheNextFont.ttf") format("truetype"), url("./fonts/TheNextFont.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "muli";
   src: url("./fonts/Muli-Regular.eot");
   src: url("./fonts/Muli-Regular.eot?#iefix") format("embedded-opentype"), url("./fonts/Muli-Regular.woff") format("woff"), url("./fonts/Muli-Regular.ttf") format("truetype"), url("./fonts/Muli-Regular.svg") format("svg");
@@ -23,9 +15,9 @@
 }
 
 @font-face {
-  font-family: "stay-fresh";
-  src: url("./fonts/StayFresh.eot");
-  src: url("./fonts/StayFresh.eot?#iefix") format("embedded-opentype"), url("./fonts/StayFresh.woff") format("woff"), url("./fonts/StayFresh.ttf") format("truetype"), url("./fonts/StayFresh.svg") format("svg");
+  font-family: "kiona";
+  src: url("./fonts/Kiona-Regular.woff");
+  src: url("./fonts/Kiona-Regular.woff") format("woff"), url("./fonts/Kiona-Regular.ttf") format("truetype"), url("./fonts/Kiona-Regular.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }

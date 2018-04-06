@@ -15,6 +15,7 @@
   .projects-list {
     grid-column-start: 1;
     justify-content: center;
+    margin-top: 20px;
     ul {
       list-style-type: none;
       padding: 0;
@@ -31,10 +32,10 @@
     margin: 20px;
     .projects-text-title {
       h2 {
-        font-family: "stay-fresh";
-        font-size: 60px;
+        font-family: "kiona";
+        font-size: 36px;
         font-weight: lighter;
-        margin: 0;
+        margin: 0 0 6px 0;
       }
     }
     .projects-text-body {
@@ -54,6 +55,9 @@
           margin-top: 8px;
         }
       }
+      p {
+        margin: 16px 0 18px 0;
+      }
     }
     .projects-text-body-border-bottom {
       border-bottom: 1px solid var(--gray-borderline);;
@@ -65,9 +69,10 @@
       ul {
         display: block;
         list-style-type: none;
+        margin-top: 16px;
         li {
           border-spacing: 12px;
-          display: table;
+          margin-bottom: 2px;
           a {
             color: white;
             text-decoration: none;
