@@ -1,0 +1,40 @@
+.text {
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  margin: 36px;
+  .text-title {
+    border-bottom: 1px solid var(--gray-borderline);
+    grid-column: 1 / 3;
+    grid-row: 1 / 1;
+    padding-bottom: 6px;
+    h1 {
+      font-family: 'kiona';
+      font-size: 48px;
+      margin: 0;
+    }
+  }
+  .text-body {
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+    margin: 24px 12px 8px 0;
+    .text-body-textarea {
+      height: 275px;
+      font-size: 14px;
+      padding: 8px;
+      width: 100%;
+    }
+  }
+  .text-generate-button {
+    grid-column: 1 / 2;
+    grid-row: 3 / 3;
+    margin-right: -8px;
+    text-align: right;
+  }
+  .text-predicted-text {
+    grid-column: 2 / 3;
+    grid-row: 2 / 2;
+    margin: 24px 12px 8px 0;
+  }
+}

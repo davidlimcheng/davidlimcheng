@@ -7,6 +7,7 @@ import './css/style.scss';
 import Dog from './components/Dog';
 import Splash from './components/Splash';
 import Projects from './components/Projects';
+import Text from './components/Text';
 
 const app = (
   <Router>
@@ -15,6 +16,7 @@ const app = (
         <Route exact path="/" component={Splash} />
         <Route path="/projects" component={Projects} />
         <Route path="/dog" component={Dog} />
+        <Route path="/textgen" component={Text} />
       </Switch>
     </div>
   </Router>

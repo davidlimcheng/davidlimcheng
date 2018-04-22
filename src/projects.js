@@ -14,15 +14,6 @@ const projects = [
       }, {
         id :'keyword3',
         keyword: 'Node.js'
-      }, {
-        id: 'keyword4',
-        keyword: 'Campus Solutions'
-      }, {
-        id: 'keyword5',
-        keyword: 'APIs'
-      }, {
-        id: 'keyword6',
-        keyword: 'Rspec'
       }
     ],
     links: [
@@ -34,7 +25,8 @@ const projects = [
       }
     ],
     orientation: 'landscape',
-    styling: 'projects-calcentral'
+    styling: 'projects-calcentral',
+    hovered: false
   }, {
     id: 'project2',
     title: 'Dog Breed Classifier',
@@ -72,7 +64,42 @@ const projects = [
       }
     ],
     orientation: 'portrait',
-    styling: 'projects-dog-breed-classifier'
+    styling: 'projects-dog-breed-classifier',
+    hovered: false
+  }, {
+    id: 'project3',
+    title: 'Predictive Text Generator',
+    image: '../css/images/text.jpg',
+    desc: 'A recurrent neural network that utilizes Long Term Short Memory architecture to predict the next lines of a body of text.',
+    keywords: [
+      {
+        id: 'keyword1',
+        keyword: 'Python'
+      }, {
+        id: 'keyword2',
+        keyword: 'Keras'
+      }, {
+        id: 'keyword3',
+        keyword: 'RNN'
+      }, {
+        id: 'keyword4',
+        keyword: 'Long Short Term Memory'
+      }, {
+        id: 'keyword5',
+        keyword: 'Keras.js'
+      }
+    ],
+    links: [
+      {
+        id: 'link1',
+        type: 'demo',
+        link: '/textgen',
+        descr: 'Demo this project'
+      }
+    ],
+    orientation: 'landscape',
+    styling: 'projects-text-generator',
+    hovered: false
   }
 ]
 

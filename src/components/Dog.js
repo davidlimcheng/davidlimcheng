@@ -2,8 +2,7 @@ import React from 'react';
 import keras from 'keras-js';
 
 import { deepCopy } from '../helpers.js';
-import model_path from '../keras/dog/weights.best.Xception.bin';
-import bottleneck_model_path from '../keras/dog/bottleneck_features_model.bin';
+import modelPath from '../keras/dog/weights.best.VGG16.bin';
 import leo from '../keras/dog/leo.jpg';
 import lisa from '../keras/dog/lisa.jpg';
 
@@ -34,17 +33,14 @@ class Dog extends React.Component {
     this.state = {
       defaultImages: defaultImages,
       featuredImage: leo,
-      model: null,
-      bottleneckModel: null
+      model: null
     }
     this.drawImage = this.drawImage.bind(this);
-    this.loadBottleneckModelToState = this.loadBottleneckModelToState.bind(this);
     this.loadModelToState = this.loadModelToState.bind(this);
     this.inputToModel = this.inputToModel.bind(this);
     this.preprocessImageData = this.preprocessImageData.bind(this);
   }
   componentDidMount() {
-    this.loadBottleneckModelToState();
     this.loadModelToState();
     this.drawImage();
   }
@@ -62,15 +58,15 @@ class Dog extends React.Component {
     const context = canvas.getContext('2d');
     let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     imageData = this.preprocessImageData(imageData);
-    console.log(imageData);
 
-    this.state.bottleneckModel
+    this.state.model
       .ready()
       .then(() => {
         const inputData = {
-          input_1: new Float32Array(imageData)
+          input: new Float32Array(imageData)
         }
-        return this.state.bottleneckModel.predict(inputData);
+        console.log(inputData);
+        return this.state.model.predict(inputData);
       })
       .then(outputData => {
         console.log(outputData);
@@ -78,15 +74,9 @@ class Dog extends React.Component {
   }
   loadModelToState() {
     const model = new keras.Model({
-      filepath: model_path
+      filepath: modelPath
     });
     this.setState({model: model})
-  }
-  loadBottleneckModelToState() {
-    const model = new keras.Model({
-      filepath: bottleneck_model_path
-    });
-    this.setState({bottleneckModel: model});
   }
   /**
    * Takes image data from a Canvas drawing, and transforms it to the appropriate
