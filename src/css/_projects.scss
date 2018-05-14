@@ -15,6 +15,7 @@
   .projects-list {
     grid-column-start: 1;
     justify-content: center;
+    margin-top: 20px;
     ul {
       list-style-type: none;
       padding: 0;
@@ -26,98 +27,110 @@
     }
   }
   .projects-text {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    margin: 20px;
-    .projects-text-title {
-      h2 {
-        font-family: "stay-fresh";
-        font-size: 60px;
-        font-weight: lighter;
-        margin: 0;
-      }
-    }
-    .projects-text-body {
-      grid-column-start: 1;
-      grid-column-end: span 2;
-      font-size: 18px;
-      line-height: 1.6;
-      ul {
-        list-style-type: none;
-        li {
-          border-radius: 12px;
-          display: inline-block;
-          font-family: "muli";
-          font-weight: bolder;
-          padding: 0 8px;
-          margin-right: 12px;
-          margin-top: 8px;
+    background: var(--blue-overlay);
+    height: 100%;
+    width: 100%;
+    .projects-text-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      padding: 20px;
+      .projects-text-title {
+        h2 {
+          font-family: "kiona";
+          font-size: 40px;
+          font-weight: heavy;
+          margin: 0 0 6px 0;
         }
       }
-    }
-    .projects-text-body-border-bottom {
-      border-bottom: 1px solid var(--gray-borderline);;
-      margin-top: 16px;
-    }
-    .projects-text-link-list {
-      grid-column-start: 1;
-      grid-column-end: span 2;
-      ul {
-        display: block;
-        list-style-type: none;
-        li {
-          border-spacing: 12px;
-          display: table;
-          a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.2s ease;
+      .projects-text-body {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        font-size: 18px;
+        line-height: 1.6;
+        ul {
+          list-style-type: none;
+          li {
+            border-radius: 12px;
+            display: inline-block;
+            font-family: "muli";
+            font-weight: bolder;
+            padding: 0 8px;
+            margin-right: 12px;
+            margin-top: 8px;
+            background-color: var(--yellow-complementary-blue-overlay);
+            color: var(--blue-overlay);
           }
-          p {
-            display: table-cell;
-            vertical-align: middle;
+        }
+        p {
+          margin: 16px 0 18px 0;
+        }
+      }
+      .projects-text-body-border-bottom {
+        border-bottom: 1px solid var(--gray-borderline);;
+        margin-top: 16px;
+      }
+      .projects-text-link-list {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+        ul {
+          display: block;
+          list-style-type: none;
+          margin-top: 16px;
+          li {
+            border-spacing: 12px;
+            margin-bottom: 2px;
+            a {
+              color: white;
+              text-decoration: none;
+              transition: color 0.2s ease;
+            }
+            a:hover {
+              color: var(--yellow-complementary-blue-overlay);
+            }
+            p {
+              display: table-cell;
+              vertical-align: middle;
+            }
           }
         }
       }
-    }
-    .projects-text-title {
-      border-bottom: 1px solid var(--gray-borderline);;
-      display: inline-block;
+      .projects-text-title {
+        border-bottom: 1px solid var(--gray-borderline);;
+        display: inline-block;
+      }
     }
   }
-
+  .projects-general {
+    background-size: contain;
+  }
   .projects-dog-breed-classifier {
     background-image: url('./images/leo.jpg');
-    background-size: contain;
     height: 667px;
     width: 500px;
-    .projects-text-body {
-      li {
-        background-color: var(--yellow-complementary-blue-overlay);
-        color: var(--blue-overlay);
-      }
-    }
-    .projects-text-link-list {
-      ul li a:hover {
-        color: var(--yellow-complementary-blue-overlay);
-      }
-    }
   }
   .projects-calcentral {
     background-image: url('./images/calcentral.jpg');
-    background-size: contain;
     height: 400px;
     width: 667px;
-    .projects-text-body {
-      li {
-        background-color: var(--yellow-complementary-red-overlay);
-        color: var(--red-overlay);
-      }
+  }
+  .projects-text-generator {
+    background-image: url('./images/text.jpg');
+    height: 409px;
+    width: 667px;
+  }
+
+  .project-enter {
+    opacity: 0.01;
+    &.project-enter-active {
+      opacity: 1;
+      transition: all 300ms ease-in;
     }
-    .projects-text-link-list {
-      ul li a:hover {
-        color: var(--yellow-complementary-red-overlay);
-      }
+  }
+  .project-exit {
+    opacity: 1;
+    &.project-exit-active {
+      opacity: 0.01;
+      transition: all 300ms ease-out;
     }
   }
 
@@ -126,17 +139,12 @@
   .hvr-sweep-to-bottom {
     display: inline-block;
     vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
+    -webkit-transform: perspective(1px);
+    transform: perspective(1px);
     box-shadow: 0 0 1px transparent;
     position: relative;
-    -webkit-transition-property: color;
-    transition-property: color;
     -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
-    .projects-text {
-      visibility: hidden;
-    }
   }
   .hvr-sweep-to-bottom:before {
     content: "";
@@ -159,9 +167,6 @@
     transition-timing-function: ease-out;
   }
   .hvr-sweep-to-bottom:hover, .hvr-sweep-to-bottom:focus, .hvr-sweep-to-bottom:active {
-    .projects-text {
-      visibility: visible;
-    }
   }
   .hvr-sweep-to-bottom:hover:before, .hvr-sweep-to-bottom:focus:before, .hvr-sweep-to-bottom:active:before {
     -webkit-transform: scaleY(1);
@@ -192,7 +197,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--red-overlay);
+    background: var(--blue-overlay);
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;

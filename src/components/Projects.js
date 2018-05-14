@@ -1,28 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Transition, TransitionGroup, CSSTransition } from 'react-transition-group';
 import projects from '../projects.js';
+import update from 'immutability-helper';
+
+const isRelativeLink = function(link) {
+  if (link.startsWith('/')) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+const createHoveredObject = function() {
+  let hovered = {};
+  projects.forEach((project) => {
+    hovered[project.id] = false;
+  });
+  return hovered;
+}
 
 class Projects extends React.Component {
   constructor() {
     super();
+    let hovered = createHoveredObject();
     this.state = {
+      hovered: hovered,
       projects: projects
     }
+    this.handleProjectMouseEnter = this.handleProjectMouseEnter.bind(this);
+    this.handleProjectMouseLeave = this.handleProjectMouseLeave.bind(this);
+    this.renderProjectDescr = this.renderProjectDescr.bind(this);
     this.renderProjectItem = this.renderProjectItem.bind(this);
     this.renderProjectKeyword = this.renderProjectKeyword.bind(this);
     this.renderProjectLink = this.renderProjectLink.bind(this);
   }
-  renderProjectItem(project) {
-    let transitionEffect = '';
-    if (project.orientation === 'portrait') {
-      transitionEffect = 'hvr-sweep-to-bottom';
-    } else {
-      transitionEffect = 'hvr-sweep-to-right';
-    }
+  handleProjectMouseEnter(projectId, e) {
+    const hovered = update(this.state.hovered, {[projectId]: {$set: true}});
+    this.setState({hovered: hovered});
+  }
+  handleProjectMouseLeave(projectId, e) {
+    const hovered = update(this.state.hovered, {[projectId]: {$set: false}});
+    this.setState({hovered: hovered});
+  }
+  renderProjectDescr(project) {
+    const duration = 300;
     return (
-      <li className="projects-list-project-item" key={project.id}>
-        <div className={transitionEffect + ' ' + project.styling}>
-          <div className="projects-text">
+      <CSSTransition in={this.state.hovered[project.id]} classNames="project" timeout={duration} unmountOnExit>
+        <div className="projects-text">
+          <div className="projects-text-inner">
             <div className="projects-text-title">
               <h2>{project.title}</h2>
             </div>
@@ -40,6 +66,27 @@ class Projects extends React.Component {
             </div>
           </div>
         </div>
+      </CSSTransition>
+    )
+  }
+  renderProjectItem(project) {
+    let transitionEffect = '';
+    if (project.orientation === 'portrait') {
+      transitionEffect = 'hvr-sweep-to-bottom';
+    } else {
+      transitionEffect = 'hvr-sweep-to-right';
+    }
+    let projectIndex = this.state.projects.findIndex((stateProject) => {
+      return (project.id === stateProject.id);
+    });
+    return (
+      <li className="projects-list-project-item" 
+          key={project.id}
+          onMouseEnter={(e) => this.handleProjectMouseEnter(project.id, e)}
+          onMouseLeave={(e) => this.handleProjectMouseLeave(project.id, e)}>
+        <div className={project.styling + ' projects-general'}>
+          {this.renderProjectDescr(project)}
+        </div>
       </li>
     )
   }
@@ -51,15 +98,19 @@ class Projects extends React.Component {
   renderProjectLink(link) {
     let faIcon = ''
     switch (link.type) {
+      case 'demo':
+        faIcon = 'icon far fa-play-circle fa-2x';
+        break;
       case 'github':
-        faIcon = 'icon fab fa-github fa-2x'
+        faIcon = 'icon fab fa-github fa-2x';
+        break;
     }
     return (
       <li key={link.id}>
-        <a href={link.link} target="_blank">
+        <Link to={link.link} target="_blank">
           <i className={faIcon}></i>
           <p>{link.descr}</p>
-        </a>
+        </Link>
       </li>
     )
   }
@@ -73,9 +124,9 @@ class Projects extends React.Component {
           </Link>
         </div>
         <div className="projects-list">
-          <ul>
+          <TransitionGroup component="ul">
             {this.state.projects.map(this.renderProjectItem)}
-          </ul>
+          </TransitionGroup>
         </div>
       </div>
     )

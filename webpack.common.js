@@ -42,7 +42,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif|svg|bin)$/,
         use: [
           { loader: 'url-loader' }
         ],
@@ -57,5 +57,8 @@ module.exports = {
       template: __dirname + '/index.html'
     }),
     new cleanWebpackPlugin(['dist'])
-  ]
+  ],
+  node: {
+    fs: 'empty'
+  }
 }
