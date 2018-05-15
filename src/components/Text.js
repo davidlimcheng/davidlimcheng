@@ -23,24 +23,20 @@ class Text extends React.Component {
         this.renderPredictedCharacters = this.renderPredictedCharacters.bind(this);
         this.shiftInputWindow = this.shiftInputWindow.bind(this);
     }
-    componentDidMount() {
-        this.loadModelToState()
-        .then(() => {
-            this.state.model.ready()
-            .then(() => {
-                console.log('kerasjs model weights, first layer');
-                console.log(this.state.model.modelWeights);
-                console.log('keras model weights, first layer');
-                console.log(kerasModelWeights);
-            });
-        });
+    async componentDidMount() {
+        await this.loadModelToState();
+        console.log('kerasjs model weights, first layer');
+        console.log(this.state.model.modelWeights);
+        console.log('keras model weights, first layer');
+        console.log(kerasModelWeights);
     }
     loadModelToState() {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             const model = new keras.Model({
                 filepath: modelPath
             });
-            this.setState({model: model});
+            await this.setState({model: model});
+            await this.state.model.ready();
             resolve();
         });
     }
@@ -48,7 +44,6 @@ class Text extends React.Component {
         return new Promise(async (resolve, reject) => {
             let predictedCharacters = '';
             inputCharacters = getLast250Characters(sanitizeText(inputCharacters));
-            console.log(inputCharacters);
             for (let i=1; i<=numCharactersToPredict; i++) {
                 let xTest = nj.zeros([1, textWindowSize, textChars.length], 'float32');
                 for (let j = 0; j < inputCharacters.length; j++) {
@@ -61,6 +56,7 @@ class Text extends React.Component {
                 let prediction = await this.inputToModel(inputData);
                 predictedCharacters += prediction;
                 inputCharacters = await this.shiftInputWindow(inputCharacters, prediction);
+                console.log(inputCharacters);
                 if (i === numCharactersToPredict) {
                     resolve(predictedCharacters);
                 }
@@ -71,7 +67,7 @@ class Text extends React.Component {
         return new Promise((resolve, reject) => {
             this.state.model.predict(inputData).then((outputData) => {
                 let prediction;
-                let predictions = outputData.output;
+                let predictions = new Float32Array(outputData.output);
                 let max = Math.max(...predictions);
                 for (const [key, value] of Object.entries(predictions)) {
                     if (value === max) {

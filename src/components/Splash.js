@@ -1,5 +1,6 @@
 import React from 'react';
-import Intro from './Intro';
+import Circles from './Circles';
+import Projects from './Projects';
 
 const navLinks = {
   link1: {
@@ -17,9 +18,7 @@ class Splash extends React.Component {
   }
   render() {
     return (
-      <div className="defaults">
-        <Intro navLinks={this.state.navLinks}/>
-      </div>
+      <Projects />
     )
   }
 }

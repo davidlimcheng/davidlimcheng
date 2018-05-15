@@ -2,9 +2,9 @@ import React from 'react';
 import keras from 'keras-js';
 
 import { deepCopy } from '../helpers.js';
-import modelPath from '../keras/dog/weights.best.VGG16.bin';
+import dogModel from '../keras/dog/weights.best.VGG16.bin';
+import xceptionModel from '../keras/dog/fixed_vanilla_Xception_model.bin';
 import leo from '../keras/dog/leo.jpg';
-import lisa from '../keras/dog/lisa.jpg';
 
 /**
  * Keras model is derived from "dog-app" project Udacity's Artificial Intelligence course
@@ -21,11 +21,8 @@ const defaultImages = [
   {
     title: 'Leo',
     image: leo
-  }, {
-    title: 'Lisa',
-    image: lisa
   }
-]
+];
 
 class Dog extends React.Component {
   constructor() {
@@ -33,16 +30,21 @@ class Dog extends React.Component {
     this.state = {
       defaultImages: defaultImages,
       featuredImage: leo,
-      model: null
+      dogModel: null,
+      xceptionModel: null
     }
     this.drawImage = this.drawImage.bind(this);
-    this.loadModelToState = this.loadModelToState.bind(this);
+    this.loadDogModelToState = this.loadDogModelToState.bind(this);
+    this.loadXceptionModelToState = this.loadXceptionModelToState.bind(this);
     this.inputToModel = this.inputToModel.bind(this);
     this.preprocessImageData = this.preprocessImageData.bind(this);
   }
-  componentDidMount() {
-    this.loadModelToState();
-    this.drawImage();
+  async componentDidMount() {
+    await this.loadXceptionModelToState();
+    await this.state.xceptionModel.ready();
+    await this.loadDogModelToState();
+    await this.state.dogModel.ready();
+    await this.drawImage();
   }
   drawImage() {
     let featuredImage = new Image();
@@ -53,30 +55,32 @@ class Dog extends React.Component {
     context.drawImage(featuredImage, 0, 0, featuredImage.width, featuredImage.height,
                                      0, 0, canvas.width, canvas.height);
   }
-  inputToModel() {
+  async inputToModel() {
+    console.log('inputting');
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
-    let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    imageData = this.preprocessImageData(imageData);
+    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    const inputData = {
+      "0316_0000": new Float32Array(this.preprocessImageData(imageData))
+    };
+    console.log('imageData: ' + imageData);
 
-    this.state.model
-      .ready()
-      .then(() => {
-        const inputData = {
-          input: new Float32Array(imageData)
-        }
-        console.log(inputData);
-        return this.state.model.predict(inputData);
-      })
-      .then(outputData => {
-        console.log(outputData);
-      });
-  }
-  loadModelToState() {
-    const model = new keras.Model({
-      filepath: modelPath
+    this.state.xceptionModel.predict(inputData).then((outputData) => {
+      console.log('outputData: ' + outputData);
     });
-    this.setState({model: model})
+  }
+  loadDogModelToState() {
+    const model = new keras.Model({
+      filepath: dogModel
+    });
+    this.setState({dogModel: model})
+  }
+  loadXceptionModelToState() {
+    const model = new keras.Model({
+      filepath: xceptionModel,
+      pauseAfterLayerCalls: false
+    });
+    this.setState({xceptionModel: model});
   }
   /**
    * Takes image data from a Canvas drawing, and transforms it to the appropriate
