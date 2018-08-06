@@ -1,0 +1,13 @@
+.splash {
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  .filter {
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 20px;
+    position: fixed;
+  }
+  .projects {
+    grid-column: 2;
+  }
+}

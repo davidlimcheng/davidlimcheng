@@ -7,8 +7,9 @@ class Filter extends React.Component {
   }
   render () {
     return (
-      <div className="filter">
-      </div>
+      <ul className="filter">
+        <wired-checkbox text="Projects" checked disabled></wired-checkbox>
+      </ul>
     )
   }
 }

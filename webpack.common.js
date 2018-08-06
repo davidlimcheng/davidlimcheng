@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: path.join(__dirname, './src/index.js')
+    app: path.join(__dirname, '/src/index.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -51,12 +51,12 @@ module.exports = {
     ]
   },
   plugins: [
+    new cleanWebpackPlugin(['dist']),
     new htmlWebpackPlugin({
       hash: true,
       filename: 'index.html',
       template: __dirname + '/index.html'
-    }),
-    new cleanWebpackPlugin(['dist'])
+    })
   ],
   node: {
     fs: 'empty'

@@ -122,11 +122,6 @@ class Projects extends React.Component {
   render() {
     return (
       <div className="projects">
-        <div className="projects-arrow">
-          <Link to="/">
-            <h1><i className="fas fa-home fa-2x"></i></h1>
-          </Link>
-        </div>
         <div className="projects-list">
           <TransitionGroup component="ul">
             {this.state.projects.map(this.renderProjectItem)}

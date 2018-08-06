@@ -1,5 +1,5 @@
 import React from 'react';
-import Circles from './Circles';
+import Filter from './Filter';
 import Projects from './Projects';
 
 const navLinks = {
@@ -18,7 +18,10 @@ class Splash extends React.Component {
   }
   render() {
     return (
-      <Projects />
+      <div className="splash">
+        <Filter className="filter" />
+        <Projects className="projects" />
+      </div>
     )
   }
 }
