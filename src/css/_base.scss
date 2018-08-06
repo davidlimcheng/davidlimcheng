@@ -15,9 +15,25 @@
 }
 
 @font-face {
-  font-family: "kiona";
-  src: url("./fonts/Kiona-Regular.eot");
-  src: url("./fonts/Muli-Light.eot?#iefix") format("embedded-opentype"), url("./fonts/Kiona-Regular.woff") format("woff"), url("./fonts/Kiona-Regular.ttf") format("truetype"), url("./fonts/Kiona-Regular.svg") format("svg");
+  font-family: "montserrat-light";
+  src: url("./fonts/Montserrat-Light.eot");
+  src: url("./fonts/Montserrat-Light.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat-Light.woff") format("woff"), url("./fonts/Montserrat-Light.ttf") format("truetype"), url("./fonts/Montserrat-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "montserrat-thin";
+  src: url("./fonts/Montserrat-Thin.eot");
+  src: url("./fonts/Montserrat-Thin.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat-Thin.woff") format("woff"), url("./fonts/Montserrat-Thin.ttf") format("truetype"), url("./fonts/Montserrat-Thin.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gloria-hallelujah";
+  src: url("./fonts/GloriaHallelujah.eot");
+  src: url("./fonts/GloriaHallelujah.eot?#iefix") format("embedded-opentype"), url("./fonts/GloriaHallelujah.woff") format("woff"), url("./fonts/GloriaHallelujah.ttf") format("truetype"), url("./fonts/GloriaHallelujah.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }

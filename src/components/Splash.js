@@ -1,5 +1,6 @@
 import React from 'react';
-import Intro from './Intro';
+import Filter from './Filter';
+import Projects from './Projects';
 
 const navLinks = {
   link1: {
@@ -17,8 +18,9 @@ class Splash extends React.Component {
   }
   render() {
     return (
-      <div className="defaults">
-        <Intro navLinks={this.state.navLinks}/>
+      <div className="splash">
+        <Filter className="filter" />
+        <Projects className="projects" />
       </div>
     )
   }

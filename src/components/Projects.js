@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Transition, TransitionGroup, CSSTransition } from 'react-transition-group';
+import { isExternalLink } from '../helpers.js';
 import projects from '../projects.js';
 import update from 'immutability-helper';
 
@@ -28,14 +29,14 @@ class Projects extends React.Component {
       hovered: hovered,
       projects: projects
     }
-    this.handleProjectMouseEnter = this.handleProjectMouseEnter.bind(this);
+    this.handleProjectMouseOver = this.handleProjectMouseOver.bind(this);
     this.handleProjectMouseLeave = this.handleProjectMouseLeave.bind(this);
     this.renderProjectDescr = this.renderProjectDescr.bind(this);
     this.renderProjectItem = this.renderProjectItem.bind(this);
     this.renderProjectKeyword = this.renderProjectKeyword.bind(this);
     this.renderProjectLink = this.renderProjectLink.bind(this);
   }
-  handleProjectMouseEnter(projectId, e) {
+  handleProjectMouseOver(projectId, e) {
     const hovered = update(this.state.hovered, {[projectId]: {$set: true}});
     this.setState({hovered: hovered});
   }
@@ -44,7 +45,7 @@ class Projects extends React.Component {
     this.setState({hovered: hovered});
   }
   renderProjectDescr(project) {
-    const duration = 300;
+    const duration = 200;
     return (
       <CSSTransition in={this.state.hovered[project.id]} classNames="project" timeout={duration} unmountOnExit>
         <div className="projects-text">
@@ -70,21 +71,12 @@ class Projects extends React.Component {
     )
   }
   renderProjectItem(project) {
-    let transitionEffect = '';
-    if (project.orientation === 'portrait') {
-      transitionEffect = 'hvr-sweep-to-bottom';
-    } else {
-      transitionEffect = 'hvr-sweep-to-right';
-    }
-    let projectIndex = this.state.projects.findIndex((stateProject) => {
-      return (project.id === stateProject.id);
-    });
     return (
       <li className="projects-list-project-item" 
-          key={project.id}
-          onMouseEnter={(e) => this.handleProjectMouseEnter(project.id, e)}
-          onMouseLeave={(e) => this.handleProjectMouseLeave(project.id, e)}>
-        <div className={project.styling + ' projects-general'}>
+          key={project.id}>
+        <div className={project.styling + ' projects-general'}
+             onMouseOver={(e) => this.handleProjectMouseOver(project.id, e)}
+             onMouseLeave={(e) => this.handleProjectMouseLeave(project.id, e)}>
           {this.renderProjectDescr(project)}
         </div>
       </li>
@@ -97,6 +89,7 @@ class Projects extends React.Component {
   }
   renderProjectLink(link) {
     let faIcon = ''
+    const isExternal = isExternalLink(link.link);
     switch (link.type) {
       case 'demo':
         faIcon = 'icon far fa-play-circle fa-2x';
@@ -105,24 +98,30 @@ class Projects extends React.Component {
         faIcon = 'icon fab fa-github fa-2x';
         break;
     }
-    return (
-      <li key={link.id}>
-        <Link to={link.link} target="_blank">
+    if (isExternal) {
+      return (
+        <li key={link.id}>
+        <a href={link.link} target="_blank">
           <i className={faIcon}></i>
           <p>{link.descr}</p>
-        </Link>
+        </a>
       </li>
-    )
+      )
+    } else {
+      return (
+        <li key={link.id}>
+          <Link to={link.link} target="_blank">
+            <i className={faIcon}></i>
+            <p>{link.descr}</p>
+          </Link>
+        </li>
+      )
+    }
   }
 
   render() {
     return (
       <div className="projects">
-        <div className="projects-arrow">
-          <Link to="/">
-            <h1><i className="far fa-arrow-alt-circle-left fa-2x hvr-bounce-in"></i></h1>
-          </Link>
-        </div>
         <div className="projects-list">
           <TransitionGroup component="ul">
             {this.state.projects.map(this.renderProjectItem)}
