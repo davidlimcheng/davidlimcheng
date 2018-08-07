@@ -14,7 +14,6 @@ const app = (
     <div>
       <Switch>
         <Route exact path="/" component={Splash} />
-        <Route path="/projects" component={Projects} />
         <Route path="/dog" component={Splash} />
         <Route path="/textgen" component={Splash} />
       </Switch>

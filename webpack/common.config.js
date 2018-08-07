@@ -5,10 +5,10 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: path.join(__dirname, '/src/index.js')
+    app: path.join(__dirname, '../src/index.js')
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].bundle.js'
   },
   module: {
@@ -55,7 +55,7 @@ module.exports = {
     new htmlWebpackPlugin({
       hash: true,
       filename: 'index.html',
-      template: __dirname + '/index.html'
+      template: path.resolve(__dirname, '../index.html')
     })
   ],
   node: {
