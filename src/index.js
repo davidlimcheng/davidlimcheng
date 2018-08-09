@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './css/font_awesome/fontawesome-all.min.js';
 import './css/style.scss';
@@ -12,11 +12,9 @@ import Projects from './components/Projects';
 const app = (
   <Router>
     <div>
-      <Switch>
-        <Route exact path="/" component={Splash} />
-        <Route path="/dog" component={Splash} />
-        <Route path="/textgen" component={Splash} />
-      </Switch>
+      <Route exact path="/" component={Splash} />
+      <Route path="/dog" component={Splash} />
+      <Route path="/textgen" component={Splash} />
     </div>
   </Router>
 );

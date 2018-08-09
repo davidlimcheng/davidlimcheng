@@ -1,4 +1,3 @@
-const autoprefixer = require('autoprefixer');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
@@ -25,26 +24,20 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' },
-          { loader: 'postcss-loader',
-            options: {
-              plugins: function() {
-                return [autoprefixer]
-              }
-            }}
+          { loader: 'sass-loader' }
         ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: [
-          { loader: 'file-loader' }
+          { loader: 'file-loader', options: { name: '[name].[ext]' } }
         ],
         exclude: /node_modules/
       },
       {
         test: /\.(jpe?g|png|gif|svg|bin)$/,
         use: [
-          { loader: 'url-loader' }
+          { loader: 'url-loader', options: { limit: 8 * 1024 } }
         ],
         exclude: /node_modules/
       }

@@ -13,3 +13,6 @@ node_modules/
 
 # Public directory
 dist/*
+
+# Python
+__pycache__/
