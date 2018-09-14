@@ -55,7 +55,7 @@ class Projects extends React.Component {
             <div className="projects-text-subtitle">
               <div>
                 <h3>
-                  <i>&#123;&nbsp;{project.type}&nbsp;&#125;</i>
+                  <i className="projects-text-subtitle-type">&#123;&nbsp;{project.type}&nbsp;&#125;</i>
                   &nbsp;&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp;&nbsp;
                   {project.date}
                 </h3>
@@ -64,7 +64,6 @@ class Projects extends React.Component {
             <div className="projects-text-body">
               <p>{project.desc}</p>
             </div>
-            <div className="projects-text-body-border-bottom"></div>
             <div className="projects-text-link-list">
               <ul>
                 {project.links.map(this.renderProjectLink)}

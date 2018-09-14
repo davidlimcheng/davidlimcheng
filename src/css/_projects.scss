@@ -39,6 +39,7 @@
         h2 {
           font-family: "muli-extralight";
           font-size: 50px;
+          letter-spacing: 1px;
           margin: 0 0 4px 0;
         }
       }
@@ -50,20 +51,20 @@
         }
         grid-column-start: 1;
         grid-column-end: 2;
-        margin-bottom: 14px;
+        margin-bottom: 16px;
+        .projects-text-subtitle-type {
+          font-family: "muli-lightitalic"
+        }
       }
       .projects-text-body {
         grid-column-start: 1;
         grid-column-end: span 2;
         font-size: 18px;
         line-height: 1.6;
+        width: 70%;
         p {
           margin: 14px 0 18px 0;
         }
-      }
-      .projects-text-body-border-bottom {
-        border-bottom: 1px solid var(--white-borderline);;
-        margin-top: 16px;
       }
       .projects-text-link-list {
         grid-column-start: 1;
