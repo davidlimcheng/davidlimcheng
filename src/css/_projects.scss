@@ -37,31 +37,26 @@
       padding: 20px;
       .projects-text-title {
         h2 {
-          font-family: "montserrat-thin";
-          font-size: 44px;
-          // font-weight: heavy;
+          font-family: "muli-extralight";
+          font-size: 50px;
           margin: 0 0 4px 0;
         }
+      }
+      .projects-text-subtitle {
+        h3 {
+          font-family: "muli-extralightitalic";
+          font-size: 24px;
+          margin: 0 4px;
+        }
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin-bottom: 14px;
       }
       .projects-text-body {
         grid-column-start: 1;
         grid-column-end: span 2;
         font-size: 18px;
         line-height: 1.6;
-        ul {
-          list-style-type: none;
-          margin-top: 8px;
-          li {
-            border-radius: 12px;
-            display: inline-block;
-            font-family: "muli";
-            font-weight: bolder;
-            padding: 0 8px;
-            margin-right: 12px;
-            background-color: var(--yellow-complementary-blue-overlay);
-            color: var(--blue-overlay);
-          }
-        }
         p {
           margin: 14px 0 18px 0;
         }
@@ -94,10 +89,6 @@
             }
           }
         }
-      }
-      .projects-text-title {
-        border-bottom: 1px solid var(--white-borderline);;
-        display: inline-block;
       }
     }
   }

@@ -1,39 +1,55 @@
 @font-face {
-  font-family: "muli";
-  src: url("./fonts/Muli-Regular.eot");
-  src: url("./fonts/Muli-Regular.eot?#iefix") format("embedded-opentype"), url("./fonts/Muli-Regular.woff") format("woff"), url("./fonts/Muli-Regular.ttf") format("truetype"), url("./fonts/Muli-Regular.svg") format("svg");
+  font-family: "gloria-hallelujah";
+  src: url("./fonts/gloria-hallelujah/GloriaHallelujah.eot");
+  src: url("./fonts/gloria-hallelujah/GloriaHallelujah.eot?#iefix") format("embedded-opentype"), url("./fonts/gloria-hallelujah/GloriaHallelujah.woff") format("woff"), url("./fonts/gloria-hallelujah/GloriaHallelujah.ttf") format("truetype"), url("./fonts/gloria-hallelujah/GloriaHallelujah.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "muli-extralight";
+  src: url("./fonts/muli-extralight/Muli-ExtraLight.eot");
+  src: url("./fonts/muli-extralight/Muli-ExtraLight.eot?#iefix") format("embedded-opentype"), url("./fonts/muli-extralight/Muli-ExtraLight.woff") format("woff"), url("./fonts/muli-extralight/Muli-ExtraLight.ttf") format("truetype"), url("./fonts/muli-extralight/Muli-ExtraLight.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "muli-extralightitalic";
+  src: url("./fonts/muli-extralightitalic/Muli-ExtraLightItalic.eot");
+  src: url("./fonts/muli-extralightitalic/Muli-ExtraLightItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/muli-extralightitalic/Muli-ExtraLightItalic.woff") format("woff"), url("./fonts/muli-extralightitalic/Muli-ExtraLightItalic.ttf") format("truetype"), url("./fonts/muli-extralightitalic/Muli-ExtraLightItalic.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "muli-italic";
+  src: url("./fonts/muli-italic/Muli-Italic.eot");
+  src: url("./fonts/muli-italic/Muli-Italic.eot?#iefix") format("embedded-opentype"), url("./fonts/muli-italic/Muli-Italic.woff") format("woff"), url("./fonts/muli-italic/Muli-Italic.ttf") format("truetype"), url("./fonts/muli-italic/Muli-Italic.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "muli-light";
-  src: url("./fonts/Muli-Light.eot");
-  src: url("./fonts/Muli-Light.eot?#iefix") format("embedded-opentype"), url("./fonts/Muli-Light.woff") format("woff"), url("./fonts/Muli-Light.ttf") format("truetype"), url("./fonts/Muli-Light.svg") format("svg");
+  src: url("./fonts/muli-light/Muli-Light.eot");
+  src: url("./fonts/muli-light/Muli-Light.eot?#iefix") format("embedded-opentype"), url("./fonts/muli-light/Muli-Light.woff") format("woff"), url("./fonts/muli-light/Muli-Light.ttf") format("truetype"), url("./fonts/muli-light/Muli-Light.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "montserrat-light";
-  src: url("./fonts/Montserrat-Light.eot");
-  src: url("./fonts/Montserrat-Light.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat-Light.woff") format("woff"), url("./fonts/Montserrat-Light.ttf") format("truetype"), url("./fonts/Montserrat-Light.svg") format("svg");
+  font-family: "muli-lightitalic";
+  src: url("./fonts/muli-lightitalic/Muli-LightItalic.eot");
+  src: url("./fonts/muli-lightitalic/Muli-LightItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/muli-lightitalic/Muli-LightItalic.woff") format("woff"), url("./fonts/muli-lightitalic/Muli-LightItalic.ttf") format("truetype"), url("./fonts/muli-lightitalic/Muli-LightItalic.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "montserrat-thin";
-  src: url("./fonts/Montserrat-Thin.eot");
-  src: url("./fonts/Montserrat-Thin.eot?#iefix") format("embedded-opentype"), url("./fonts/Montserrat-Thin.woff") format("woff"), url("./fonts/Montserrat-Thin.ttf") format("truetype"), url("./fonts/Montserrat-Thin.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "gloria-hallelujah";
-  src: url("./fonts/GloriaHallelujah.eot");
-  src: url("./fonts/GloriaHallelujah.eot?#iefix") format("embedded-opentype"), url("./fonts/GloriaHallelujah.woff") format("woff"), url("./fonts/GloriaHallelujah.ttf") format("truetype"), url("./fonts/GloriaHallelujah.svg") format("svg");
+  font-family: "muli";
+  src: url("./fonts/muli-regular/Muli-Regular.eot");
+  src: url("./fonts/muli-regular/Muli-Regular.eot?#iefix") format("embedded-opentype"), url("./fonts/muli-regular/Muli-Regular.woff") format("woff"), url("./fonts/muli-regular/Muli-Regular.ttf") format("truetype"), url("./fonts/muli-regular/Muli-Regular.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }

@@ -33,7 +33,6 @@ class Projects extends React.Component {
     this.handleProjectMouseLeave = this.handleProjectMouseLeave.bind(this);
     this.renderProjectDescr = this.renderProjectDescr.bind(this);
     this.renderProjectItem = this.renderProjectItem.bind(this);
-    this.renderProjectKeyword = this.renderProjectKeyword.bind(this);
     this.renderProjectLink = this.renderProjectLink.bind(this);
   }
   handleProjectMouseOver(projectId, e) {
@@ -53,11 +52,17 @@ class Projects extends React.Component {
             <div className="projects-text-title">
               <h2>{project.title}</h2>
             </div>
+            <div className="projects-text-subtitle">
+              <div>
+                <h3>
+                  <i>&#123;&nbsp;{project.type}&nbsp;&#125;</i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {project.date}
+                </h3>
+              </div>
+            </div>
             <div className="projects-text-body">
               <p>{project.desc}</p>
-              <ul>
-                {project.keywords.map(this.renderProjectKeyword)}
-              </ul>
             </div>
             <div className="projects-text-body-border-bottom"></div>
             <div className="projects-text-link-list">
@@ -80,11 +85,6 @@ class Projects extends React.Component {
           {this.renderProjectDescr(project)}
         </div>
       </li>
-    )
-  }
-  renderProjectKeyword(keyword) {
-    return (
-      <li key={keyword.id}>{keyword.keyword}</li>
     )
   }
   renderProjectLink(link) {
