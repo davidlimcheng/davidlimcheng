@@ -22,7 +22,7 @@ const projects = [
     ],
     orientation: 'landscape',
     styling: 'projects-text-generator',
-    type: 'project'
+    type: 'Project'
   }
 ]
 

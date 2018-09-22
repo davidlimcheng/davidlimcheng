@@ -55,8 +55,8 @@ class Projects extends React.Component {
             <div className="projects-text-subtitle">
               <div>
                 <h3>
-                  <i className="projects-text-subtitle-type">&#123;&nbsp;{project.type}&nbsp;&#125;</i>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span className="projects-text-subtitle-type">{project.type}</span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;&nbsp;
                   {project.date}
                 </h3>
               </div>

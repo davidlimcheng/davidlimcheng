@@ -1,18 +1,9 @@
 .projects {
   color: white;
   display: grid;
-  font-family: 'muli-light';
+  font-family: 'cormorantinfant-light';
   grid-template-columns: 1fr;
   justify-items: center;
-  .projects-arrow {
-    position: fixed;
-    left: 5%;
-    grid-column-start: 1;
-    z-index: 5;
-    a {
-      color: white;
-    }
-  }
   .projects-list {
     grid-column-start: 1;
     justify-content: center;
@@ -22,6 +13,7 @@
       padding: 0;
       .projects-list-project-item {
         display: grid;
+        font-size: 18px;
         justify-content: center;
         margin: 12px 0 82px;
       }
@@ -37,15 +29,15 @@
       padding: 20px;
       .projects-text-title {
         h2 {
-          font-family: "muli-extralight";
-          font-size: 50px;
+          font-family: "cormorantinfant-regular";
+          font-size: 54px;
           letter-spacing: 1px;
           margin: 0 0 4px 0;
         }
       }
       .projects-text-subtitle {
         h3 {
-          font-family: "muli-extralightitalic";
+          font-family: "cormorantinfant-regular";
           font-size: 24px;
           margin: 0 4px;
         }
@@ -53,7 +45,8 @@
         grid-column-end: 2;
         margin-bottom: 16px;
         .projects-text-subtitle-type {
-          font-family: "muli-lightitalic"
+          font-family: "cormorantinfant-italic";
+          letter-spacing: 2px;
         }
       }
       .projects-text-body {
@@ -61,7 +54,6 @@
         grid-column-end: span 2;
         font-size: 18px;
         line-height: 1.6;
-        width: 70%;
         p {
           margin: 14px 0 18px 0;
         }
