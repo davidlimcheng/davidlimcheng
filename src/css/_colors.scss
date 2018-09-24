@@ -1,17 +1,14 @@
 :root {
-  --black-overlay: rgba(0, 0, 0, 0.3);
-  --gray-borderline: rgb(45, 45, 45);
-  --yellow-nav-link-hover: rgb(224, 203, 61);
-  --white-borderline: rgb(225, 225, 225);
+  // intrepid theme
+  --intrepid-blue: #314455;
+  --intrepid-purple: #644e5b;
+  --intrepid-dark-red: #9e5a63;
+  --intrepid-red: #c96567;
+  --intrepid-gray: #97aabd;
 
-  // group of complements
-  --blue-overlay: rgba(46, 66, 101, 0.96);
-  --yellow-complementary-blue-overlay: rgb(231, 217, 154);
-  --green: rgb(41, 150, 88);
-
-  // group of complements
-  --red-overlay: rgba(80, 16, 11, 0.90);
-  --yellow-complementary-red-overlay: rgb(255, 223, 90);
-
-  --bright-green: rgb(84, 189, 22);
+  // antique/clean theme
+  --antique-rust: #b56357;
+  --antique-mint: #b4dbc0;
+  --antique-slate: #eae3ea;
+  --sea-foam: #a7b3a5;
 }

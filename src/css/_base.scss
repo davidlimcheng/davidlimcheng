@@ -56,6 +56,21 @@
   src: url("./fonts/cormorantinfant-italic/CormorantInfant-Italic.ttf");
 }
 
+@font-face {
+  font-family: "roboto-thin";
+  src: url("./fonts/roboto-thin/Roboto-Thin.ttf");
+}
+
+@font-face {
+  font-family: "roboto-light";
+  src: url("./fonts/roboto-light/Roboto-Light.ttf");
+}
+
+@font-face {
+  font-family: "roboto-regular";
+  src: url("./fonts/roboto-regular/Roboto-Regular.ttf");
+}
+
 body {
   background-color: black;
   margin: 0;

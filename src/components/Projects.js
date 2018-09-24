@@ -5,14 +5,6 @@ import { isExternalLink } from '../helpers.js';
 import projects from '../projects.js';
 import update from 'immutability-helper';
 
-const isRelativeLink = function(link) {
-  if (link.startsWith('/')) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
 const createHoveredObject = function() {
   let hovered = {};
   projects.forEach((project) => {
@@ -65,6 +57,9 @@ class Projects extends React.Component {
               <p>{project.desc}</p>
             </div>
             <div className="projects-text-link-list">
+              <div className="projects-text-link-list-left-border-top-section"></div>
+              <div className="projects-text-link-list-left-border-middle-section"></div>
+              <div className="projects-text-link-list-left-border-bottom-section"></div>
               <ul>
                 {project.links.map(this.renderProjectLink)}
               </ul>
@@ -77,7 +72,7 @@ class Projects extends React.Component {
   renderProjectItem(project) {
     return (
       <li className="projects-list-project-item" 
-          key={project.id}>
+          key={project.title}>
         <div className={project.styling + ' projects-general'}
              onMouseOver={(e) => this.handleProjectMouseOver(project.id, e)}
              onMouseLeave={(e) => this.handleProjectMouseLeave(project.id, e)}>
@@ -91,26 +86,28 @@ class Projects extends React.Component {
     const isExternal = isExternalLink(link.link);
     switch (link.type) {
       case 'demo':
-        faIcon = 'icon far fa-play-circle fa-2x';
+        faIcon = 'icon far fa-play-circle';
         break;
       case 'github':
-        faIcon = 'icon fab fa-github fa-2x';
+        faIcon = 'icon fab fa-github';
         break;
     }
     if (isExternal) {
       return (
-        <li key={link.id}>
+        <li key={link.type}>
         <a href={link.link} target="_blank">
           <i className={faIcon}></i>
+          &nbsp;
           <p>{link.descr}</p>
         </a>
       </li>
       )
     } else {
       return (
-        <li key={link.id}>
+        <li key={link.type}>
           <Link to={link.link} target="_blank">
             <i className={faIcon}></i>
+            &nbsp;
             <p>{link.descr}</p>
           </Link>
         </li>

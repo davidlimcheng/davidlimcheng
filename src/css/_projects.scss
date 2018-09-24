@@ -1,7 +1,6 @@
 .projects {
   color: white;
   display: grid;
-  font-family: 'cormorantinfant-light';
   grid-template-columns: 1fr;
   justify-items: center;
   .projects-list {
@@ -20,14 +19,18 @@
     }
   }
   .projects-text {
-    background: var(--blue-overlay);
+    background: var(--intrepid-blue);
     height: 100%;
     width: 100%;
     .projects-text-inner {
       display: grid;
-      grid-template-columns: auto 1fr;
-      padding: 20px;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr auto;
+      height: inherit;
       .projects-text-title {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        padding: 18px 18px 0 18px;
         h2 {
           font-family: "cormorantinfant-regular";
           font-size: 54px;
@@ -36,6 +39,9 @@
         }
       }
       .projects-text-subtitle {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        padding: 0 18px;
         h3 {
           font-family: "cormorantinfant-regular";
           font-size: 24px;
@@ -43,60 +49,87 @@
         }
         grid-column-start: 1;
         grid-column-end: 2;
-        margin-bottom: 16px;
+        margin-bottom: 32px;
         .projects-text-subtitle-type {
           font-family: "cormorantinfant-italic";
           letter-spacing: 2px;
         }
       }
       .projects-text-body {
+        font-family: 'roboto-light';
+        font-size: 16px;
         grid-column-start: 1;
-        grid-column-end: span 2;
-        font-size: 18px;
+        grid-row-start: 3;
+        grid-row-end: 4;
         line-height: 1.6;
+        padding: 0 18px;
         p {
           margin: 14px 0 18px 0;
         }
       }
       .projects-text-link-list {
-        grid-column-start: 1;
-        grid-column-end: span 2;
+        display: grid;
+        font-family: "roboto-thin";
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-template-columns: 1px 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 18px 18px 18px 18px;
         ul {
           display: block;
+          grid-column-start: 2;
+          grid-column-end: 3;
+          grid-row-start: 1;
+          grid-row-end: 4;
           list-style-type: none;
-          margin-top: 16px;
+          margin-left: 16px;
           li {
             border-spacing: 12px;
-            margin-bottom: 2px;
+            margin-bottom: 12px;
             a {
               color: white;
               text-decoration: none;
               transition: color 0.2s ease;
             }
             a:hover {
-              color: var(--yellow-complementary-blue-overlay);
+              color: var(--intrepid-red);
             }
             p {
-              display: table-cell;
-              vertical-align: middle;
+              display: inline-block;
+              margin: 0;
+              vertical-align: center;
+            }
+            &:last-child {
+              margin-bottom: 0;
             }
           }
+        }
+        .projects-text-link-list-left-border-top-section {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          border-left: 1px solid var(--intrepid-gray);
+        }
+        .projects-text-link-list-left-border-middle-section {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 2;
+          grid-row-end: 3;
+          border-left: 1px solid var(--intrepid-purple);
+        }
+        .projects-text-link-list-left-border-bottom-section {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 3;
+          grid-row-end: 4;
+          border-left: 1px solid var(--intrepid-dark-red);
         }
       }
     }
   }
   .projects-general {
     background-size: contain;
-  }
-  .projects-dog-breed-classifier {
-    background-image: url('./images/leo.jpg');
-    height: 667px;
-    width: 500px;
-  }
-  .projects-calcentral {
-    background-image: url('./images/calcentral.jpg');
-    height: 400px;
-    width: 667px;
   }
   .projects-text-generator {
     background-image: url('./images/text.jpg');
