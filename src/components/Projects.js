@@ -45,13 +45,11 @@ class Projects extends React.Component {
               <h2>{project.title}</h2>
             </div>
             <div className="projects-text-subtitle">
-              <div>
-                <h3>
-                  <span className="projects-text-subtitle-type">{project.type}</span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;&nbsp;
-                  {project.date}
-                </h3>
-              </div>
+              <h3>
+                <span className="projects-text-subtitle-type">{project.tools.join(', ')}</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;&nbsp;
+                {project.date}
+              </h3>
             </div>
             <div className="projects-text-body">
               <p>{project.desc}</p>
@@ -105,7 +103,7 @@ class Projects extends React.Component {
     } else {
       return (
         <li key={link.type}>
-          <Link to={link.link} target="_blank">
+          <Link to={link.link}>
             <i className={faIcon}></i>
             &nbsp;
             <p>{link.descr}</p>

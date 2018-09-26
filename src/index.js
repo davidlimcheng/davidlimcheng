@@ -4,18 +4,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './css/font_awesome/fontawesome-all.min.js';
 import './css/style.scss';
-// import Dog from './components/Dog';
 import Splash from './components/Splash';
-import Projects from './components/Projects';
-// import Text from './components/Text';
+import DemoPage from './components/demo/DemoPage';
 
 const app = (
   <Router>
-    <div>
+    <Switch>
       <Route exact path="/" component={Splash} />
-      <Route path="/dog" component={Splash} />
-      <Route path="/textgen" component={Splash} />
-    </div>
+      <Route path="/textgen" component={DemoPage} />
+    </Switch>
   </Router>
 );
 

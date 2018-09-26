@@ -19,7 +19,8 @@
     }
   }
   .projects-text {
-    background: var(--intrepid-blue);
+    // background: var(--intrepid-blue);
+    background-image: linear-gradient(to bottom right, var(--intrepid-blue), var(--intrepid-purple));
     height: 100%;
     width: 100%;
     .projects-text-inner {
@@ -49,7 +50,7 @@
         }
         grid-column-start: 1;
         grid-column-end: 2;
-        margin-bottom: 32px;
+        margin-bottom: 26px;
         .projects-text-subtitle-type {
           font-family: "cormorantinfant-italic";
           letter-spacing: 2px;
@@ -116,14 +117,14 @@
           grid-column-end: 2;
           grid-row-start: 2;
           grid-row-end: 3;
-          border-left: 1px solid var(--intrepid-purple);
+          border-left: 1px solid var(--intrepid-gray);
         }
         .projects-text-link-list-left-border-bottom-section {
           grid-column-start: 1;
           grid-column-end: 2;
           grid-row-start: 3;
           grid-row-end: 4;
-          border-left: 1px solid var(--intrepid-dark-red);
+          border-left: 1px solid var(--intrepid-gray);
         }
       }
     }
